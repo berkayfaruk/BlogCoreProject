@@ -1,6 +1,6 @@
 using System;
 
-namespace UILayer.Models
+namespace UI.Models
 {
     public class ErrorViewModel
     {

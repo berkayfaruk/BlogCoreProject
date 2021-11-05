@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using UILayer.Models;
+using UI.Models;
 
-namespace UILayer.Controllers
+namespace UI.Controllers
 {
     public class HomeController : Controller
     {
