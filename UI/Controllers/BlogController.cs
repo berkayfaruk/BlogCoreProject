@@ -16,5 +16,11 @@ namespace UI.Controllers
             var values = bm.GetBlogListWithCategory();
             return View(values);
         }
+        public IActionResult BlogDetails(int id)
+        {
+            ViewBag.i = id;
+            var values = bm.GetBlogById(id);
+            return View(values);
+        }
     }
 }
