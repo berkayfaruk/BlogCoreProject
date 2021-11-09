@@ -1,4 +1,4 @@
-﻿
+﻿@model EntityLayer.Concrete.Writer
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/UserLayout.cshtml";
@@ -9,37 +9,53 @@
         <h3 class="tittle">Yazar Kayıt Sayfası</h3>
         <div class="inner-sec">
             <div class="login p-5 bg-light mx-auto mw-100">
-                <form action="#" method="post">
+                @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+                {
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Adınız Soyadınız</label>
-
-                            <input type="text" class="form-control" id="validationDefault01" placeholder="" required="" name="WriterName">
+                            @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
+                            @*<input type="text" class="form-control" id="validationDefault01" placeholder="" required="" name="WriterName">*@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Mail Adresi</label>
-                            <input type="email" class="form-control" id="validationDefault02" name="WriterMail" placeholder="" required="">
+                            @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterMail,"",new { @class = "text-danger" })
+                            @*<input type="email" class="form-control" id="validationDefault02" name="WriterMail" placeholder="" required="">*@
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword1 mb-2">Şifre</label>
-                            <input type="password" class="form-control" id="password1" name="WriterPassword" placeholder="" required="">
+                            @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
+                            @*<input type="password" class="form-control" id="password1" name="WriterPassword" placeholder="" required="">*@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword2 mb-2">Confirm Password</label>
-                            <input type="password" class="form-control" id="password2" placeholder="" required="">
+                            @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
+                            @*<input type="text" class="form-control" id="password2" placeholder="" required="">*@
                         </div>
 
                     </div>
                     <button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
                     <p>
-                        <a href="#">Tüm şartları okudum, kabul ediyorum.</a>
+                        <a href="#" id="btn1">Tüm şartları okudum, kabul ediyorum.</a>
                     </p>
-                </form>
+                }
 
             </div>
         </div>
     </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $('#btn1').click(function () {
+            swal("ABONE, işbu Sözleşme ve işbu Sözleşme’nin ayrılmaz parçası sayılan Ön Bilgilendirme Formu’nda özellikleri belirtilen Basılı ve/veya Dijital İçerik Hizmetleri’ni satın almıştır. Satın alınan Basılı ve/veya Dijital İçerik Hizmetleri’nin özellikleri ve kullanım koşulları normaldergi.com adlı web sitesindeki tanıtım sayfasında ve Ön Bilgilendirme Formu’nda belirtildiği gibidir. İşbu Sözleşme ile AABİR YAYINCILIK, normaldergi.com adresinde, basılı dergi yayınında ve/veya mobil cihaz, akıllı televizyon ve benzeri cihazlar üzerinde yer alan Anlık Normal Dergi uygulamalarından AABİR YAYINCILIK’ın sunduğu ve AABİR YAYINCILIK’ın tek taraflı takdir hakkına bağlı olarak belirlenecek Basılı ve/veya Dijital İçerik Hizmetlerini önceden belirtilen fiyat ve koşullarda ABONE’ye sunmayı;ABONE de Anlık Normal Dergi kullanım şartlarını kabul ederek ürün/hizmet bedelini zamanında AABİR YAYINCILIK’a ödemeyi taahhüt eder. Abonelik, açıkça belirtilecek bir duyuru ile bildirilene kadar ücretsizdir ve böyle kalması hedeflenmektedir. ABONE, işbu Sözleşme ve Sözleşme’nin ayrılmaz parçası sayılan Ön Bilgilendirme Formu’nda özellikleri belirtilecek olası Basılı dergi yayını dışında kalan Dijital İçerik Hizmetleri’nin fiziksel bir teslimatının olmadığını, gayri maddi nitelikte olan Dijital İçerik Hizmetleri’nin elektronik ortamda sunulacağını ve teslim edileceğini kabul eder.işbu Sözleşme ve Sözleşme’nin ayrılmaz parçası sayılan Ön Bilgilendirme Formu’nda özellikleri belirtilecek olası Basılı dergi yayını dışında kalan Dijital İçerik Hizmetleri’nin fiziksel bir teslimatının olmadığını, gayri maddi nitelikte olan Dijital İçerik Hizmetleri’nin elektronik ortamda sunulacağını ve teslim edileceğini kabul eder.işbu Sözleşme ve Sözleşme’nin ayrılmaz parçası sayılan Ön Bilgilendirme Formu’nda özellikleri belirtilecek olası Basılı dergi yayını dışında kalan Dijital İçerik Hizmetleri’nin fiziksel bir teslimatının olmadığını, gayri maddi nitelikte olan Dijital İçerik Hizmetleri’nin elektronik ortamda sunulacağını ve teslim edileceğini kabul eder.")
+        });
+    </script>
+
 </section>
 

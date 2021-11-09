@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Abstract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Blog
+    public class Blog : IEntity
     {
         [Key]
         public int BlokID { get; set; }
@@ -22,6 +23,9 @@ namespace EntityLayer.Concrete
         //ilişki category ile
         public int CategoryID { get; set; }
         public Category Category { get; set; }
+
+        public int WriterID { get; set; }
+        public Writer Writer { get; set; }
         //
         //
         //bir blogub birden fazla yorumu olabilir
