@@ -23,22 +23,19 @@ namespace UI.Controllers
         [HttpPost]
         public PartialViewResult SubscribeMail(NewsLetter p)
         {
-
-            p.MailStatus = true;
-            letterManager.AddNewsLetter(p); 
-            return PartialView();
-        }
-        public void Toast()
-        {
             try
             {
-
+                p.MailStatus = true;
+                letterManager.AddNewsLetter(p);
+                _notyf.Success("Mail gönderildi.", 5);
+                return PartialView();
             }
             catch (Exception)
             {
-
+                _notyf.Error("Mail gönderilemedi.", 5);
                 throw;
             }
+            
         }
     }
 }
